@@ -1,0 +1,39 @@
+﻿@model SmartLands.Models.SystemLog
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>XÓA CẢNH BÁO</h1>
+
+<h3>Bạn chắc chắn muốn xóa thông tin này?</h3>
+<div>
+    <h4>THEO DÕI CẢNH BÁO</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Timestamp)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Action)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Action)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.User)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="SystemLogId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

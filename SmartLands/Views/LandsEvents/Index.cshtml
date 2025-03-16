@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SmartLands.Models.LandsEvent>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Theo dõi sạt lở</h4>
+
+<p>
+    <a asp-action="Create">Thêm mới</a>
+</p>
+<table class="table datatable" id="LandsEvents">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OccurredAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OccurredAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LandsEventId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LandsEventId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LandsEventId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        const dataTable = new simpleDatatables.DataTable("#LandsEvents", {
+            perPageSelect: [5, 10, 15, ["All", -1]],
+            searchable: true,
+            fixedHeight: true,
+        })
+    </script>
+}

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SmartLands.Models.SensorData>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Dữ liệu cảm biến - Thêm mới</h4>
+
+<p>
+    <a asp-action="Create">Thêm mới</a>
+</p>
+<table class="table datatable" id="SensorDatas">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sensor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timestamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unit)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sensor.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timestamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unit)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SensorDataId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SensorDataId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SensorDataId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        const dataTable = new simpleDatatables.DataTable("#SensorDatas", {
+            perPageSelect: [5, 10, 15, ["All", -1]],
+            searchable: true,
+            fixedHeight: true,
+        })
+    </script>
+}

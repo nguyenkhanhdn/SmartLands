@@ -1,0 +1,44 @@
+﻿@model SmartLands.Models.SensorData
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4>Dữ liệu cảm biên - Chi tiết</h4>
+
+<div>
+    
+    <hr />
+    <h4>Thông tin chi tiết</h4>
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Sensor)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Sensor.Name)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Timestamp)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Value)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Unit)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Unit)
+        </dd>
+    </dl>
+</div>
+<p></p>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.SensorDataId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

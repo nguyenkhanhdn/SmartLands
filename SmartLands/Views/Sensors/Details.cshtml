@@ -1,0 +1,31 @@
+﻿@model SmartLands.Models.Sensor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4>Chi tiết - Quản lý thiết bị</h4>
+<div>
+    <hr />
+    <h4>Thông tin chi tiết</h4> 
+    <p></p>
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Area.Name)
+        </dd>
+    </dl>
+</div>
+<p></p>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.SensorId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

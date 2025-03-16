@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SmartLands.Models.SystemLog>
+
+@{
+    ViewData["Title"] = "Nhật ký cảnh báo";
+}
+
+<h1>.: THEO DÕI CẢNH BÁO :. </h1>
+
+<p>
+    <a asp-action="Create">Thêm mới</a>
+</p>
+<table class="table datatable" id="SystemLogs">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Timestamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Action)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timestamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Action)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SystemLogId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SystemLogId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SystemLogId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts{
+    <script>
+        const dataTable = new simpleDatatables.DataTable("#SystemLogs", {
+            perPageSelect: [5, 10, 15, ["All", -1]],
+            searchable: true,
+            fixedHeight: true,
+        })
+    </script>
+}

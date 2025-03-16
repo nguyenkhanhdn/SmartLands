@@ -1,0 +1,33 @@
+﻿@model SmartLands.Models.Area
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h4>Xóa - Khu vực giám sát</h4>
+
+<div>    
+    <hr />
+    <h4>Bạn chắc xóa thông tin này không?</h4>
+    <p></p>
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd class = "col-sm-8">
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+    </dl>
+    <p></p>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AreaId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
