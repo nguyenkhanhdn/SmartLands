@@ -15,7 +15,11 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        List<LandLog> logs = new List<LandLog>();
+        FirebaseUtil firebaseUtil = new FirebaseUtil();
+        logs = firebaseUtil.GetLogs();
+
+        return View(logs);
     }
 
     public IActionResult Privacy()
