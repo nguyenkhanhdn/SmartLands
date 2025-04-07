@@ -39,9 +39,7 @@ namespace SmartLands.Controllers
             //// Chuyển đổi mảng thành chuỗi JSON
             //string jsonDates = Newtonsoft.Json.JsonConvert.SerializeObject(dates);
             //string jsonValues = Newtonsoft.Json.JsonConvert.SerializeObject(values);
-            ////trả về cho razor view
-            //ViewBag.Dates = jsonDates;
-            //ViewBag.Values = jsonValues;
+
 
             return logsData;
         }
